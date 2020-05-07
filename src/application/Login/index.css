@@ -1,0 +1,41 @@
+.login-banner{
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items:center;
+    padding-left: 40px;
+}
+.login-title{
+    font-size: 30px;
+    font-weight: bolder;
+    text-align: center;
+    padding: 0 0 20px 0;
+}
+.login{
+    display: flex;
+    justify-content: center;
+    height: calc(100vh - 70px);
+    align-items: center;
+    
+}
+.login-form{
+    width: 500px;
+    padding: 20px;
+    /* border: 1px solid red; */
+    border-radius: 10px;
+    /* background: #f2f3f4; */
+    background-color: #fff;
+}
+.logo{
+    text-align: center;
+}
+.login-form-button {
+    width: 100%;
+  }
+.change-button{
+    display: flex;
+    justify-content: space-between;
+}
+.ant-tabs-nav-scroll{
+    text-align: center;
+}

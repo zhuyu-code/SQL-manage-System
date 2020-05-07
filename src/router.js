@@ -4,7 +4,7 @@ import {Route, Redirect} from 'react-router-dom';
 
 import ProtectRoute from './protectRoute';
 import mainRoute from './mainRoute';
-import history from './history';
+import history from './util/history';
 
 import Main from './application/Main';
 import Login from './application/Login';
