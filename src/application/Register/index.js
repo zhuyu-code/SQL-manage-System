@@ -1,7 +1,8 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Form, Icon, Input, Button, Checkbox, Tabs } from "antd";
 
 import history from "../../util/history";
+import {getRegister} from '../../api/index'
 
 import Logo from "../../asserts/logo.png";
 import IndexLogo from "../../asserts/index_logo.png";
@@ -10,6 +11,12 @@ import "./index.css";
 
 const { TabPane } = Tabs;
 class NormalLoginForm extends React.Component {
+    constructor(props){
+      super(props);
+      this.state={
+        status:0
+      }
+    }
     compareToFirstPassword = (rule, value, callback) => {
         const { form } = this.props;
         if (value && value !== form.getFieldValue('password')) {
@@ -19,28 +26,35 @@ class NormalLoginForm extends React.Component {
         }
       };
     
-      // validateToNextPassword = (rule, value, callback) => {
-      //   const { form } = this.props;
-      //   if (value && this.state.confirmDirty) {
-      //     form.validateFields(['confirm'], { force: true });
-      //   }
-      //   callback();
-      // };
     
   handleSubmit = (e) => {
-    console.log("打印")
     e.preventDefault();
-    console.log("打印2");
-    console.log(this.props.form);
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log("内容")
         console.log("Received values of form: ", values);
+        let obj=values;
+        obj.status=this.state.status;
+        if(this.state.status=="1"){
+          obj.workNumber=obj.studentId;
+        }
+        getRegister(obj).then(res=>{
+          console.log("打印内容");
+          console.log(res);
+          if(res.error==0){
+            localStorage.setItem('token',res.token);
+          }
+        })
       }
       console.log(err)
     });
   };
 
+  TabChange=(key)=>{
+    this.setState({
+      status:key
+    });
+    
+  }
   render() {
     const { getFieldDecorator } = this.props.form;
     return (
@@ -52,7 +66,7 @@ class NormalLoginForm extends React.Component {
         <div className="login">
           <Form onSubmit={this.handleSubmit} className="login-form">
             <div className="login-title">SQL训练测试平台</div>
-            <Tabs defaultActiveKey="1">
+            <Tabs defaultActiveKey="0" onChange={this.TabChange}>
               <TabPane
                 tab={
                   <span>
@@ -60,9 +74,12 @@ class NormalLoginForm extends React.Component {
                     学生注册
                   </span>
                 }
-                key="1"
+                key="0"
               >
-                <Form.Item>
+              {
+                this.state.status==0?
+                <Fragment>
+                    <Form.Item>
                   {getFieldDecorator("studentId", {
                     rules: [
                       {
@@ -226,6 +243,8 @@ class NormalLoginForm extends React.Component {
                     placeholder="确认密码"
                   />)}
                 </Form.Item>
+                </Fragment>:null
+              }
               </TabPane>
               <TabPane
                 tab={
@@ -234,14 +253,17 @@ class NormalLoginForm extends React.Component {
                     教师注册
                   </span>
                 }
-                key="2"
+                key="1"
               >
-                <Form.Item>
-                  {getFieldDecorator("workNumber", {
+              {
+                this.props.status==0?null:
+                <Fragment>
+                  <Form.Item>
+                  {getFieldDecorator("studentId", {
                     rules: [
                       {
                         required: true,
-                        message: "Please input your username!",
+                        message: "请输入教师工号!",
                       },
                     ],
                   })(
@@ -360,6 +382,8 @@ class NormalLoginForm extends React.Component {
                     placeholder="确认密码"
                   />)}
                 </Form.Item>
+                </Fragment>
+              }
               </TabPane>
             </Tabs>
 
