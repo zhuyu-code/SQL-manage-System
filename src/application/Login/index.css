@@ -18,12 +18,10 @@
     align-items: center;
     
 }
-.login-form{
+.login-main .login-form{
     width: 500px;
     padding: 20px;
-    /* border: 1px solid red; */
     border-radius: 10px;
-    /* background: #f2f3f4; */
     background-color: #fff;
 }
 .logo{

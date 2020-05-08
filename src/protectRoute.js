@@ -7,7 +7,7 @@ function ProtectRoute(props) {
         <Route
             {...props}
             render={(props) =>
-                localStorage.getItem('userInfo') ?
+                localStorage.getItem('token') ?
                     <Component /> : 
                     <Redirect to={      
                         {

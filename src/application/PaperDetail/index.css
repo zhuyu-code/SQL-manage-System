@@ -1,0 +1,33 @@
+.paperdetail{
+    display: flex;
+    justify-content: center;
+}
+.paperdetail-left{
+    min-width: 240px;
+    /* height: 500px; */
+    background-color: #f9f9f9;
+    padding: 20px 10px;
+}
+.paperdetail-middle{
+    min-width: 1000px;
+    height: 400px;
+    margin:40px 20px
+}
+.paperdetail-papername,.paperdetail-creattime{
+    font-size: 20px;
+    font-weight: bolder;
+    padding: 20px ;
+}
+
+.paperdetail-name2,.paperdetail-time2{
+    padding: 10px;
+}
+.divider:after{
+    /* border-top:2px solid red!important; */
+}
+.detail-createtitle{
+    margin:10px 0;
+    border: 1px solid rgb(200, 204, 204);
+    border-radius: 4px;
+    padding: 10px 20px;
+}

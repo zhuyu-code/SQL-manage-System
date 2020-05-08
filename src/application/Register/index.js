@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Form, Icon, Input, Button, Checkbox, Tabs } from "antd";
+import { Form, Icon, Input, Button, message, Tabs } from "antd";
 
 import history from "../../util/history";
 import {getRegister} from '../../api/index'
@@ -41,7 +41,11 @@ class NormalLoginForm extends React.Component {
           console.log("打印内容");
           console.log(res);
           if(res.error==0){
-            localStorage.setItem('token',res.token);
+            message.success(res.message,3);
+            setTimeout(()=>{
+              history.push("/login")
+            },2000)
+            
           }
         })
       }

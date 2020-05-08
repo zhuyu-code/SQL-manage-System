@@ -77,8 +77,13 @@ class http {
         return await instance.post(url, rawData)
     }
 
-    // ....其他方法
-    // ..............
+    static async put(url, data) { //封装put方法
+        return await instance.put(url, data)
+    }
+
+    static async delete(url, param) { // 封装delete方法
+        return await instance.delete(url,{params:param})
+    }
 }
 
 export default http

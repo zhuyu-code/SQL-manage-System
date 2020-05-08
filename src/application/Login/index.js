@@ -1,5 +1,5 @@
 import React, { useEffect, Fragment } from "react";
-import { Form, Icon, Input, Button, Checkbox, Tabs } from "antd";
+import { Form, Icon, Input, Button, Checkbox, Tabs,message } from "antd";
 
 import history from "../../util/history";
 import { getLogin } from "../../api/index";
@@ -29,7 +29,11 @@ class NormalLoginForm extends React.Component {
         }
         console.log(obj)
         getLogin(obj).then(res=>{
-          console.log(res);
+          if(res.error==0){
+            message.success("登录成功",3);
+            localStorage.setItem("token",res.token);
+            history.push("/main/teacher")
+          }
         })
       }
     });
