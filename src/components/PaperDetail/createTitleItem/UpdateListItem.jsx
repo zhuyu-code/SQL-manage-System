@@ -45,7 +45,7 @@ const NormalLoginForm = props => {
       <Modal
         title="增加题目详细信息"
         visible={visible}
-        okText="添加"
+        okText="更新"
         cancelText="取消"
         onOk={handleSubmit}
         onCancel={handleCancel}
