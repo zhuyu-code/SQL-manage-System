@@ -1,0 +1,20 @@
+.studentmain-main{
+    margin: 20px;
+    padding: 20px;
+}
+.studentmain-form{
+    display: flex;
+}
+.studentmain-form .ant-input-affix-wrapper{
+    width: 200px;
+}
+.studentmain-sub{
+    display: flex;
+    justify-content: space-between;
+}
+.studentmain-sub .ant-form-item-control{
+    margin-right: 10px;
+}
+.studentmain-sub .ant-form-item{
+    display: flex;
+}

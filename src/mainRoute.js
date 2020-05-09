@@ -3,8 +3,12 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { Popover, Avatar, message} from "antd";
 
+//教师端
 import TeacherMain from "./application/TeacherMain";
 import PaperDetail from "./application/PaperDetail";
+
+//学生端
+import StudentMain from "./application/StudentMain"
 import history from './util/history';
 
 const text = <span>个人信息</span>;
@@ -42,6 +46,7 @@ export default () => {
           path="/main/teacher/paperdetail/:paperId"
           component={PaperDetail}
         />
+        <Route path="/main/student" component={StudentMain}/>
       </Switch>
     </div>
   );

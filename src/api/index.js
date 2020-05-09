@@ -22,3 +22,8 @@ export const createTitle=(data)=>http.post('/teacher/createTitle',data);
 export const updateTitle=(titleId)=>http.post('/teacher/changeTitleInfo',titleId);
 //教师发布题目
 export const displayTitle=(data)=>http.put('/teacher/publishPaper',data);
+
+
+
+//学生拉取所有老师的试卷信息
+export const getStudentPaper=(query)=>http.get('/student/getPaperList',query)
