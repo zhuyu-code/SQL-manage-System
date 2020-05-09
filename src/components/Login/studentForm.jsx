@@ -21,7 +21,7 @@ let StudentLoginForm = (props) => {
           if(res.error==0){
               message.success(res.message);
               localStorage.setItem("token",res.token);
-              // history.push('/main/teacher')
+              history.push('/main/student')
           }else{
               message.error(res.message);
           }
