@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Icon, Input, Button, message, Tabs } from "antd";
+import {  Icon, Tabs } from "antd";
 
 import history from "../../util/history";
 import {getRegister} from '../../api/index'

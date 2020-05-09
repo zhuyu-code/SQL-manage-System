@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Input, Button, Modal, Select, message, Icon } from "antd";
+import { Form, Input, Button, Modal, message } from "antd";
 import {useLocation} from 'react-router'
 import {createTitle} from '../../../api/index';
 const { TextArea } = Input;

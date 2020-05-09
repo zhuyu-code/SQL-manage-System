@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-import { Form, Icon, Input, Button, Checkbox, Tabs, message } from "antd";
+import { Form, Icon, Input, Button, message } from "antd";
 
 import {getLogin} from '../../api/index';
 import history from "../../util/history";

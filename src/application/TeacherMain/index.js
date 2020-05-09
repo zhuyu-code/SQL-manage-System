@@ -11,11 +11,11 @@ import EnterTeacherPaper from "../../components/TeacherPaper/EnterTeacherPaper";
 import "./index.css";
 export default () => {
   const [CardData, setCardData] = useState([]);
-  let query=useCallback(()=>{
+  let query=()=>{
     getAllPaperList().then((res) => {
         setCardData(res.list);
       });
-  },[])
+  }
   useEffect(() => {
     query()
   }, []);

@@ -1,6 +1,6 @@
 import React,{Fragment} from 'react';
 
-import {Icon,Modal,Tooltip} from 'antd';
+import {Icon,Modal,Tooltip, message} from 'antd';
 
 import {deleteTeacherPaper} from '../../api/index'
 const text = <span>删除产品</span>;
@@ -18,7 +18,13 @@ export default props => {
   }
   function deleteProductFun(index) {
     return  ()=> {
-       deleteTeacherPaper(index);
+       deleteTeacherPaper(index).then(res=>{
+         if(res.error==0){
+           message.success(res.message)
+         }else{
+           message.error(res.message);
+         }
+       })
        query();
     };
   }
